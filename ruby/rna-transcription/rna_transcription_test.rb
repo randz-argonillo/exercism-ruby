@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
-#require_relative 'rna_transcription'
-require_relative 'rna_transcription_jon'
+require_relative 'rna_transcription'
+#require_relative 'rna_transcription_jon'
 
 # Test data version:
 # 3b07e53 Merge pull request #117 from mikeyjcat/add-raindrops-json

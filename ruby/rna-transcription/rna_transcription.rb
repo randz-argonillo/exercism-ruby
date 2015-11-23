@@ -17,8 +17,8 @@ class Complement
 
 private
   def self.transcribe(strands, type)
-    0.upto(strands.length-1).inject([]) { |all, idx| all << @complements[type].fetch(strands[idx]) }.join
-  rescue KeyError => e
-    raise ArgumentError, "Please ensure that your stands are valid."
+    0.upto(strands.length-1).inject('') do |all, idx| 
+      all << @complements[type].fetch(strands[idx]) { raise ArgumentError, "Please ensure that your strands are valid." }
+    end
   end
 end
