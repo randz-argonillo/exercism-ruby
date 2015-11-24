@@ -2,7 +2,7 @@
 class Complement
   VERSION = 2
 
-  @complements = { 
+  COMPLEMENTS = { 
     dna: {'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U'},
     rna: {'C' => 'G', 'G' => 'C', 'A' => 'T', 'U' => 'A'}
   }
@@ -16,9 +16,11 @@ class Complement
   end
 
 private
-  def self.transcribe(strands, type)
+  def self.transcribe(strands, to_type)
     0.upto(strands.length-1).inject('') do |all, idx| 
-      all << @complements[type].fetch(strands[idx]) { raise ArgumentError, "Please ensure that your strands are valid." }
+      all << COMPLEMENTS[to_type].fetch(strands[idx]) do 
+        raise ArgumentError, "Please ensure that your strands are valid." 
+      end
     end
   end
 end
